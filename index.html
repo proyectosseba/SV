@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>SV Contabilidades</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                SV<span>Contabilidades</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav nav" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab">Inicio</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="servicios-tab" data-bs-toggle="tab" data-bs-target="#servicios" type="button" role="tab">Servicios</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="herramientas-tab" data-bs-toggle="tab" data-bs-target="#herramientas" type="button" role="tab">Herramientas</button>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0" role="presentation">
+                        <button class="btn-custom-primary">Contáctanos</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Barra de Indicadores Económicos (Top Bar) -->
+    <div class="indicadores-bar d-none d-md-block" style="background-color: var(--color-bg-light); border-bottom: 1px solid #e0e0e0; padding: 8px 0; font-size: 13px;">
+        <div class="container d-flex justify-content-end gap-4" id="indicadores-top-bar">
+            <span style="color: var(--color-text-muted);">Cargando indicadores...</span>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-5">
+        <div class="tab-content" id="myTabContent">
+            
+            <!-- Pestaña Home -->
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="hero-section text-center">
+                    <div class="container position-relative" style="z-index: 1;">
+                        <h1 class="hero-title">Estrategia e Innovación<br>para tu <span>Negocio</span></h1>
+                        <p class="hero-subtitle">Descubre soluciones contables innovadoras y personalizadas. Mejora la gestión y potencia el éxito de tu empresa con nuestras herramientas gratuitas.</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button class="btn-custom-primary" onclick="document.getElementById('servicios-tab').click()">Ver Servicios</button>
+                            <button class="btn-custom-primary" style="background-color: transparent; border: 2px solid white;" onclick="document.getElementById('herramientas-tab').click()">Usar Herramientas</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard de Información (Inicio) -->
+                <div class="container mt-5 mb-5 pt-3">
+                    <div class="row g-4 align-items-stretch">
+                        
+                        <!-- Columna 1: Calendario Tributario -->
+                        <div class="col-lg-4 col-md-6">
+                            <div style="background: var(--color-white); border-radius: 12px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); height: 100%; border: 1px solid rgba(0,0,0,0.05);">
+                                <h3 style="font-size: 20px; font-weight: 800; color: var(--color-secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                                    📅 Calendario Tributario
+                                </h3>
+                                
+                                <div style="display: flex; flex-direction: column; gap: 15px;">
+                                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                        <div style="background: var(--color-primary); color: white; border-radius: 8px; padding: 10px; min-width: 55px; text-align: center; font-weight: 700; line-height: 1.2;">
+                                            <span style="font-size: 12px; display: block;">Día</span>
+                                            <span style="font-size: 20px;">13</span>
+                                        </div>
+                                        <div>
+                                            <h4 style="font-size: 15px; font-weight: 700; color: var(--color-secondary); margin-bottom: 3px;">Previred</h4>
+                                            <p style="font-size: 13px; color: var(--color-text-muted); margin: 0;">Vencimiento pago de cotizaciones previsionales.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                        <div style="background: var(--color-primary); color: white; border-radius: 8px; padding: 10px; min-width: 55px; text-align: center; font-weight: 700; line-height: 1.2;">
+                                            <span style="font-size: 12px; display: block;">Día</span>
+                                            <span style="font-size: 20px;">20</span>
+                                        </div>
+                                        <div>
+                                            <h4 style="font-size: 15px; font-weight: 700; color: var(--color-secondary); margin-bottom: 3px;">F29 IVA</h4>
+                                            <p style="font-size: 13px; color: var(--color-text-muted); margin: 0;">Declaración y pago de impuestos mensuales.</p>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                        <div style="background: var(--color-secondary); color: white; border-radius: 8px; padding: 10px; min-width: 55px; text-align: center; font-weight: 700; line-height: 1.2;">
+                                            <span style="font-size: 12px; display: block;">Mes</span>
+                                            <span style="font-size: 16px; margin-top: 2px; display: block;">ABR</span>
+                                        </div>
+                                        <div>
+                                            <h4 style="font-size: 15px; font-weight: 700; color: var(--color-secondary); margin-bottom: 3px;">Operación Renta</h4>
+                                            <p style="font-size: 13px; color: var(--color-text-muted); margin: 0;">Declaración anual (F22).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Columna 2: Normativas Vigentes -->
+                        <div class="col-lg-4 col-md-6">
+                            <div style="background: var(--color-white); border-radius: 12px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); height: 100%; border: 1px solid rgba(0,0,0,0.05);">
+                                <h3 style="font-size: 20px; font-weight: 800; color: var(--color-secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                                    ⚖️ Normativas SII
+                                </h3>
+                                
+                                <div style="display: flex; flex-direction: column; gap: 15px;">
+                                    <div style="padding-bottom: 12px; border-bottom: 1px solid #eee;">
+                                        <span style="font-size: 11px; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.5px;">Circular N° 12</span>
+                                        <h4 style="font-size: 14px; font-weight: 700; color: var(--color-secondary); margin: 5px 0;">Ley de Cumplimiento Tributario</h4>
+                                        <p style="font-size: 13px; color: var(--color-text-muted); margin: 0;">Nuevas medidas para evitar la evasión fiscal.</p>
+                                    </div>
+                                    <div style="padding-bottom: 12px; border-bottom: 1px solid #eee;">
+                                        <span style="font-size: 11px; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.5px;">Resolución Ex. N° 85</span>
+                                        <h4 style="font-size: 14px; font-weight: 700; color: var(--color-secondary); margin: 5px 0;">Nuevos Topes Imponibles</h4>
+                                        <p style="font-size: 13px; color: var(--color-text-muted); margin: 0;">Actualización de los valores máximos (UF).</p>
+                                    </div>
+                                    <div>
+                                        <span style="font-size: 11px; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.5px;">Recordatorio Anual</span>
+                                        <h4 style="font-size: 14px; font-weight: 700; color: var(--color-secondary); margin: 5px 0;">Retención Honorarios</h4>
+                                        <p style="font-size: 13px; color: var(--color-text-muted); margin: 0;">La tasa de retención sube progresivamente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Columna 3: Buenas Prácticas -->
+                        <div class="col-lg-4 col-md-12">
+                            <div style="background: var(--color-primary); border-radius: 12px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); height: 100%; color: white; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
+                                <div>
+                                    <div style="position: absolute; top: -20px; right: -20px; opacity: 0.1; font-size: 150px; pointer-events: none;">💡</div>
+                                    <h3 style="font-size: 20px; font-weight: 800; color: white; margin-bottom: 20px; position: relative; z-index: 1;">
+                                        Buenas Prácticas
+                                    </h3>
+                                    
+                                    <ul style="list-style: none; padding: 0; margin: 0; position: relative; z-index: 1; display: flex; flex-direction: column; gap: 15px;">
+                                        <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                            <span style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                            <span style="font-size: 14px; line-height: 1.5;">Nunca mezcles finanzas personales con las de tu empresa. Usa cuentas separadas.</span>
+                                        </li>
+                                        <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                            <span style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                            <span style="font-size: 14px; line-height: 1.5;">Revisa periódicamente el RCV en el SII para aceptar o rechazar facturas a tiempo (8 días).</span>
+                                        </li>
+                                        <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                            <span style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                            <span style="font-size: 14px; line-height: 1.5;">Guarda respaldo de contratos y liquidaciones firmadas electrónicamente.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <button class="btn-custom-primary" style="background-color: white; color: var(--color-primary); border: none; width: 100%; margin-top: 25px; font-weight: 700; position: relative; z-index: 1;" onclick="window.location.href='#'">Solicitar Asesoría</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pestaña Servicios -->
+            <div class="tab-pane fade" id="servicios" role="tabpanel" aria-labelledby="servicios-tab">
+                <div class="text-center mb-5 mt-3">
+                    <h2 style="font-weight: 800; color: var(--color-secondary);">Nuestros Servicios Contables</h2>
+                    <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">Tecnología avanzada asistida por expertos. Protegemos tu información y optimizamos tus impuestos de manera segura.</p>
+                </div>
+                
+                <div class="row g-4 justify-content-center">
+                    
+                    <!-- Servicio 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div style="background: var(--color-white); border-radius: 12px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); height: 100%; border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column;">
+                            <div style="width: 60px; height: 60px; background: rgba(142, 68, 173, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">
+                                📊
+                            </div>
+                            <h3 style="font-size: 20px; font-weight: 800; color: var(--color-secondary); margin-bottom: 15px;">Gestión Contable Mensual</h3>
+                            <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 25px; line-height: 1.6;">Nos encargamos de tu F29 y remuneraciones combinando herramientas tecnológicas propias con revisión experta humana para garantizar cero multas.</p>
+                            
+                            <ul style="list-style: none; padding: 0; margin: 0; margin-bottom: 25px; display: flex; flex-direction: column; gap: 12px; flex-grow: 1;">
+                                <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: var(--color-primary); font-weight: bold;">✓</span>
+                                    <span style="font-size: 13px; color: var(--color-secondary);">Declaración mensual de impuestos (F29).</span>
+                                </li>
+                                <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: var(--color-primary); font-weight: bold;">✓</span>
+                                    <span style="font-size: 13px; color: var(--color-secondary);">Conciliación Bancaria segura (sin pedirte claves).</span>
+                                </li>
+                                <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: var(--color-primary); font-weight: bold;">✓</span>
+                                    <span style="font-size: 13px; color: var(--color-secondary);">Liquidaciones y pago de cotizaciones (Previred).</span>
+                                </li>
+                            </ul>
+                            
+                            <button class="btn-custom-primary" style="width: 100%; font-size: 14px;">Cotizar Plan</button>
+                        </div>
+                    </div>
+
+                    <!-- Servicio 2 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div style="background: var(--color-white); border-radius: 12px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); height: 100%; border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column;">
+                            <div style="width: 60px; height: 60px; background: rgba(142, 68, 173, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">
+                                📈
+                            </div>
+                            <h3 style="font-size: 20px; font-weight: 800; color: var(--color-secondary); margin-bottom: 15px;">Operación Renta Anual</h3>
+                            <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 25px; line-height: 1.6;">Planificamos y ejecutamos tu F22 y Declaraciones Juradas, buscando siempre la máxima optimización tributaria dentro del marco legal.</p>
+                            
+                            <ul style="list-style: none; padding: 0; margin: 0; margin-bottom: 25px; display: flex; flex-direction: column; gap: 12px; flex-grow: 1;">
+                                <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: var(--color-primary); font-weight: bold;">✓</span>
+                                    <span style="font-size: 13px; color: var(--color-secondary);">Confección y envío de Declaraciones Juradas.</span>
+                                </li>
+                                <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: var(--color-primary); font-weight: bold;">✓</span>
+                                    <span style="font-size: 13px; color: var(--color-secondary);">Formulario 22 para Personas y Empresas.</span>
+                                </li>
+                                <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: var(--color-primary); font-weight: bold;">✓</span>
+                                    <span style="font-size: 13px; color: var(--color-secondary);">Análisis de regímenes tributarios (Pro Pyme).</span>
+                                </li>
+                            </ul>
+                            
+                            <button class="btn-custom-primary" style="width: 100%; font-size: 14px;">Solicitar Evaluación</button>
+                        </div>
+                    </div>
+
+                    <!-- Servicio 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div style="background: var(--color-primary); border-radius: 12px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); height: 100%; display: flex; flex-direction: column;">
+                            <div style="width: 60px; height: 60px; background: rgba(255, 255, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">
+                                🛡️
+                            </div>
+                            <h3 style="font-size: 20px; font-weight: 800; color: white; margin-bottom: 15px;">Asesoría y Regularización</h3>
+                            <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 25px; line-height: 1.6;">Te acompañamos en la toma de decisiones financieras y ordenamos contabilidades atrasadas para que vuelvas a operar con total tranquilidad.</p>
+                            
+                            <ul style="list-style: none; padding: 0; margin: 0; margin-bottom: 25px; display: flex; flex-direction: column; gap: 12px; flex-grow: 1;">
+                                <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: white; font-weight: bold;">✓</span>
+                                    <span style="font-size: 13px; color: white;">Levantamiento de observaciones del SII.</span>
+                                </li>
+                                <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: white; font-weight: bold;">✓</span>
+                                    <span style="font-size: 13px; color: white;">Puesta al día de años contables atrasados.</span>
+                                </li>
+                                <li style="display: flex; gap: 10px; align-items: flex-start;">
+                                    <span style="color: white; font-weight: bold;">✓</span>
+                                    <span style="font-size: 13px; color: white;">Planificación de crecimiento empresarial.</span>
+                                </li>
+                            </ul>
+                            
+                            <button class="btn-custom-primary" style="background: white; color: var(--color-primary); border: none; width: 100%; font-size: 14px; font-weight: bold;">Agendar Reunión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pestaña Herramientas -->
+            <div class="tab-pane fade" id="herramientas" role="tabpanel" aria-labelledby="herramientas-tab">
+                <div class="text-center mb-5 mt-3">
+                    <h2 style="font-weight: 800; color: var(--color-secondary);">Herramientas Gratuitas</h2>
+                    <p style="color: var(--color-text-muted);">Utilidades en línea para facilitar tus cálculos diarios.</p>
+                </div>
+                
+                <div class="row g-4 justify-content-center">
+                    
+                    <div class="col-md-4 col-sm-6">
+                        <div class="corporative-card" id="card-conciliacion">
+                            <div class="card-icon-container">
+                                <img src="img/Conciliacion.png" alt="Conciliación Bancaria">
+                            </div>
+                            <h3>Conciliación Bancaria</h3>
+                            <p>Sincroniza y verifica tus movimientos bancarios con el sistema de forma rápida y sin errores.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="corporative-card" id="card-honorarios">
+                            <div class="card-icon-container">
+                                <img src="img/logoSV.png" alt="Boletas de Honorarios">
+                            </div>
+                            <h3>Boletas de Honorarios</h3>
+                            <p>Calcula fácilmente el monto líquido y bruto de tus boletas, actualizado con la retención 2026.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="corporative-card" id="card-iva">
+                            <div class="card-icon-container">
+                                <img src="img/logoSV.png" alt="Calculadora de IVA">
+                            </div>
+                            <h3>Calculadora de IVA</h3>
+                            <p>Desglosa el valor Neto, IVA y Bruto de tus facturas de forma instantánea.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="corporative-card" id="card-renta">
+                            <div class="card-icon-container">
+                                <img src="img/logoSV.png" alt="Simulador Operación Renta">
+                            </div>
+                            <h3>Simulador Operación Renta</h3>
+                            <p>Calcula tu Impuesto Anual y averigua si te corresponde pago o devolución en abril.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal-conciliacion" class="modal-overlay" style="display: none;">
+        <div class="custom-modal-content custom-modal-content-large">
+            <div class="custom-modal-header">
+                <h2>Ingreso de Movimientos (Sistema)</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="custom-modal-body">
+                <div class="context-container" id="context-selectors">
+                    <div class="context-group">
+                        <label for="select-empresa">Empresa (RUT)</label>
+                        <select id="select-empresa">
+                            <option value="">Seleccione una empresa...</option>
+                            <option value="76.123.456-7">Mi Empresa SpA (76.123.456-7)</option>
+                            <option value="77.987.654-3">Inversiones ABC (77.987.654-3)</option>
+                        </select>
+                    </div>
+                    <div class="context-group">
+                        <label for="select-banco">Banco</label>
+                        <select id="select-banco">
+                            <option value="">Seleccione un banco...</option>
+                            <option value="Banco Estado">Banco Estado</option>
+                            <option value="Santander">Santander</option>
+                            <option value="MACH">MACH</option>
+                        </select>
+                    </div>
+                    <div class="context-group">
+                        <label for="select-cuenta">Cuenta Bancaria</label>
+                        <select id="select-cuenta">
+                            <option value="">Seleccione una cuenta...</option>
+                            <option value="Cuenta Corriente 2309">Cuenta Corriente 2309</option>
+                            <option value="Cuenta Vista 4556">Cuenta Vista 4556</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="toolbar" id="grid-toolbar" style="opacity: 0.5; pointer-events: none;">
+                    <button id="btn-add-row" class="btn-secondary">+ Agregar Fila</button>
+                </div>
+                <div class="table-container" id="grid-container" style="opacity: 0.5; pointer-events: none;">
+                    <table id="table-movimientos" class="editable-table">
+                        <thead>
+                            <tr>
+                                <th>FECHA</th>
+                                <th>DESCRIPCION</th>
+                                <th>MONTO</th>
+                                <th>TIPO</th>
+                                <th>N°DOCUMENTO</th>
+                                <th>ID CLIENTE/PROVEEDOR</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Las filas se agregarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="custom-modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                <div id="status-message" style="font-weight: bold; color: #104c9e; margin-left: 10px;"></div>
+                <button id="btn-send-data" class="btn-primary">Enviar al Sistema</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-honorarios" class="modal-overlay" style="display: none;">
+        <div class="custom-modal-content" style="max-width: 500px; height: auto; max-height: 90vh;">
+            <div class="custom-modal-header">
+                <h2 style="font-size: 24px;">Calculadora de Honorarios</h2>
+                <button id="close-honorarios-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="custom-modal-body" style="padding: 30px; overflow-y: auto; display: block;">
+                <p style="text-align: center; color: var(--color-text-muted); font-size: 15px; margin-top: 0; margin-bottom: 25px;">
+                    Ingresa el monto Bruto o el Líquido. Tasa de retención legal (2026): <strong>15.25%</strong>.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 20px; background: var(--color-white); padding: 0; margin-bottom: 0;">
+                    
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="calc-bruto" style="font-weight: 600; color: var(--color-secondary); font-size: 15px;">Monto Bruto ($)</label>
+                        <input type="number" id="calc-bruto" placeholder="Ej: 100000" style="padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 8px; outline: none; box-shadow: none;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#ddd'">
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="calc-retencion" style="font-weight: 600; color: var(--color-secondary); font-size: 15px;">Retención (15.25%)</label>
+                        <input type="number" id="calc-retencion" placeholder="Automático" disabled style="padding: 12px; font-size: 16px; border: 1px solid #eee; border-radius: 8px; background: var(--color-bg-light); color: var(--color-text-muted);">
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="calc-liquido" style="font-weight: 600; color: var(--color-secondary); font-size: 15px;">Monto Líquido ($)</label>
+                        <input type="number" id="calc-liquido" placeholder="Ej: 84750" style="padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 8px; outline: none; box-shadow: none;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#ddd'">
+                    </div>
+
+                    <div style="text-align: center; margin-top: 15px;">
+                        <button id="btn-limpiar-calc" class="btn-secondary" style="width: 100%; padding: 12px; font-size: 16px;">Limpiar Calculadora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Calculadora de IVA -->
+    <div id="modal-iva" class="modal-overlay" style="display: none;">
+        <div class="custom-modal-content" style="max-width: 500px; height: auto; max-height: 90vh;">
+            <div class="custom-modal-header">
+                <h2 style="font-size: 24px;">Calculadora de IVA</h2>
+                <button id="close-iva-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="custom-modal-body" style="padding: 30px; overflow-y: auto; display: block;">
+                <p style="text-align: center; color: var(--color-text-muted); font-size: 15px; margin-top: 0; margin-bottom: 25px;">
+                    Ingresa el monto Neto o Bruto para calcular el IVA (19%).
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 20px; background: var(--color-white); padding: 0; margin-bottom: 0;">
+                    
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="calc-iva-neto" style="font-weight: 600; color: var(--color-secondary); font-size: 15px;">Monto Neto ($)</label>
+                        <input type="number" id="calc-iva-neto" placeholder="Ej: 100000" style="padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 8px; outline: none; box-shadow: none;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#ddd'">
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="calc-iva-impuesto" style="font-weight: 600; color: var(--color-secondary); font-size: 15px;">IVA (19%)</label>
+                        <input type="number" id="calc-iva-impuesto" placeholder="Automático" disabled style="padding: 12px; font-size: 16px; border: 1px solid #eee; border-radius: 8px; background: var(--color-bg-light); color: var(--color-text-muted);">
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="calc-iva-bruto" style="font-weight: 600; color: var(--color-secondary); font-size: 15px;">Monto Bruto ($)</label>
+                        <input type="number" id="calc-iva-bruto" placeholder="Ej: 119000" style="padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 8px; outline: none; box-shadow: none;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#ddd'">
+                    </div>
+
+                    <div style="text-align: center; margin-top: 15px;">
+                        <button id="btn-limpiar-iva" class="btn-secondary" style="width: 100%; padding: 12px; font-size: 16px;">Limpiar Calculadora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Simulador Operación Renta -->
+    <div id="modal-renta" class="modal-overlay" style="display: none;">
+        <div class="custom-modal-content" style="max-width: 550px; height: auto; max-height: 90vh;">
+            <div class="custom-modal-header">
+                <h2 style="font-size: 24px;">Simulador Operación Renta</h2>
+                <button id="close-renta-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="custom-modal-body" style="padding: 30px; overflow-y: auto; display: block;">
+                <p style="text-align: center; color: var(--color-text-muted); font-size: 15px; margin-top: 0; margin-bottom: 25px;">
+                    Simula tu Impuesto a la Renta anual (IGC) y descubre si tienes devolución a favor o pago pendiente.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="calc-renta-bruto" style="font-weight: 600; color: var(--color-secondary); font-size: 15px;">Total Boletas de Honorarios Anuales ($)</label>
+                        <input type="number" id="calc-renta-bruto" placeholder="Suma bruta de todas tus boletas" style="padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 8px; outline: none; box-shadow: none;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#ddd'">
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="calc-renta-retenciones" style="font-weight: 600; color: var(--color-secondary); font-size: 15px;">Total de Retenciones Anuales ($) - Opcional</label>
+                        <input type="number" id="calc-renta-retenciones" placeholder="Suma de las retenciones (13.75% o 15.25%)" style="padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 8px; outline: none; box-shadow: none;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#ddd'">
+                    </div>
+
+                    <button id="btn-calcular-renta" class="btn-custom-primary" style="width: 100%; padding: 14px; font-size: 16px; margin-top: 10px;">Calcular Mi Renta</button>
+
+                    <!-- Caja de Resultados -->
+                    <div id="renta-resultado-container" style="display: none; background: var(--color-bg-light); border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin-top: 15px; text-align: center;">
+                        <h3 style="font-size: 18px; font-weight: 700; color: var(--color-secondary); margin-bottom: 15px;">Resultado de tu Simulación</h3>
+                        <p id="renta-impuesto" style="font-size: 15px; margin-bottom: 10px;"></p>
+                        <p id="renta-saldo" style="font-size: 16px; margin-bottom: 20px;"></p>
+                        
+                        <div style="font-size: 12px; color: var(--color-text-muted); margin-bottom: 15px; text-align: left; background-color: rgba(0,0,0,0.02); padding: 10px; border-radius: 6px;">
+                            <strong>Nota:</strong> Este es un cálculo referencial en base a la Tabla del Impuesto Global Complementario. Incluye la presunción de gastos del 30% para independientes. No incluye créditos, rebajas hipotecarias ni APV.
+                        </div>
+
+                        <button class="btn-secondary" style="width: 100%; padding: 10px; font-size: 14px;" onclick="window.location.href='#'">Solicitar Asesoría Tributaria</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SV Copilot (Asistente IA Frontend) -->
+    <div id="sv-copilot-container" class="copilot-hidden">
+        <div class="copilot-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="copilot-avatar">🤖</div>
+                <div>
+                    <h4 style="margin: 0; font-size: 15px; font-weight: 700; color: white;">SV Assistant</h4>
+                    <p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.8);">Asistente Virtual</p>
+                </div>
+            </div>
+            <button id="copilot-close-btn" class="copilot-btn-icon">&times;</button>
+        </div>
+        
+        <div id="copilot-messages" class="copilot-messages-area">
+            <!-- Los mensajes se inyectan por JS -->
+        </div>
+
+        <div class="copilot-input-area">
+            <div id="copilot-quick-options" class="copilot-quick-options">
+                <!-- Opciones rápidas inyectadas por JS -->
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" id="copilot-input" placeholder="Escribe tu mensaje...">
+                <button id="copilot-send-btn" class="copilot-btn-icon">➤</button>
+            </div>
+            <p style="text-align: center; font-size: 10px; color: #aaa; margin: 8px 0 0 0;">Desarrollado con IA (Demo)</p>
+        </div>
+    </div>
+
+    <!-- Botón Flotante para abrir el Copilot -->
+    <button id="copilot-trigger-btn" class="copilot-trigger">
+        <span style="font-size: 20px;">🤖</span> Asistente (IA)
+    </button>
+
+    <!-- Librería SheetJS para leer Excel/CSV -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <!-- Script de Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script principal de lógica -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

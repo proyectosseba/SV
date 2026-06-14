@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SV Admin - Ecosistema de IA</title>
+    <!-- Mismas fuentes que la página principal -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- SheetJS para leer Excel localmente -->
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <style>
+        :root {
+            --color-primary: #8E44AD;
+            --color-secondary: #2C3E50;
+            --color-bg: #F8F9FA;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--color-bg);
+            margin: 0; padding: 0; color: #333;
+        }
+        .admin-header {
+            background-color: var(--color-secondary); color: white;
+            padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;
+        }
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
+        
+        .drop-zone {
+            width: 100%; height: 200px; padding: 25px;
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+            text-align: center; font-weight: 500; font-size: 16px; cursor: pointer;
+            color: #777; border: 2px dashed var(--color-primary); border-radius: 10px;
+            box-sizing: border-box; background-color: #fafafa; transition: background 0.3s;
+            margin-bottom: 20px;
+        }
+        .drop-zone.dragover { background-color: rgba(142, 68, 173, 0.1); }
+        .drop-zone input { display: none; }
+        
+        .btn-process {
+            background-color: var(--color-primary); color: white; border: none;
+            padding: 15px 30px; font-size: 16px; font-weight: 700; border-radius: 8px;
+            cursor: pointer; width: 100%; transition: background 0.3s ease;
+        }
+        .btn-process:hover { background-color: #732d91; }
+        .btn-process:disabled { background-color: #ccc; cursor: not-allowed; }
+        
+        .status-box { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; }
+        .status-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: block;}
+        .status-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block;}
+    </style>
+</head>
+<body>
+
+    <header class="admin-header">
+        <h1 style="margin: 0; font-size: 24px;">SV Admin <span style="font-size: 14px; font-weight: 500; background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 20px; margin-left: 10px;">Gestor</span></h1>
+        <div style="font-size: 14px; opacity: 0.8;">Cerebro Auditor Activo 🟢</div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2 style="color: var(--color-primary); margin-top: 0;">🧠 Motor Central de Procesamiento</h2>
+            <p style="color: #666; margin-bottom: 25px;">Sube el archivo Excel o CSV. La IA lo leerá, limpiará los datos, extraerá RUTs y enviará todo estructurado a tu Google Sheet.</p>
+            
+            <div style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex: 1;">
+                    <label>Tipo de Registro</label>
+                    <select id="tipoRegistro">
+                        <option value="CARTOLA">CARTOLA (Datos del Banco)</option>
+                        <option value="SISTEMA">SISTEMA (Movimientos Contables Internos)</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>RUT Empresa</label>
+                    <input type="text" id="rutEmpresa" placeholder="Ej: 76.123.456-7" />
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 15px; margin-bottom: 10px;">
+                <div class="form-group" style="flex: 1;">
+                    <label>Banco</label>
+                    <input type="text" id="banco" placeholder="Ej: Banco Estado" />
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>N° Cuenta</label>
+                    <input type="text" id="cuenta" placeholder="Ej: 123456789" />
+                </div>
+            </div>
+
+            <div class="drop-zone" id="dropZone">
+                <span style="font-size: 40px; margin-bottom: 10px;">📄</span>
+                <span id="dropZoneText">Arrastra aquí tu archivo Excel o CSV<br>o haz clic para seleccionar</span>
+                <input type="file" id="fileInput" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+            </div>
+            
+            <button id="processBtn" class="btn-process" disabled>Primero carga un archivo...</button>
+
+            <div id="statusMessage" class="status-box"></div>
+        </div>
+    </div>
+
+    <script src="./js/admin.js"></script>
+</body>
+</html>

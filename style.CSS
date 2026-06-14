@@ -1,0 +1,619 @@
+:root {
+    --color-primary: #9c02ba; /* Morado */
+    --color-secondary: #212529; /* Negro/Gris muy oscuro */
+    --color-bg-light: #f8f9fa; /* Gris claro */
+    --color-text-dark: #333333;
+    --color-text-muted: #6c757d;
+    --color-white: #ffffff;
+    --font-family-sans: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--color-bg-light);
+    font-family: var(--font-family-sans);
+    margin: 0;
+    padding: 0;
+    color: var(--color-text-dark);
+}
+
+/* ========================================= */
+/* NAVBAR CORPORATIVA                        */
+/* ========================================= */
+.navbar {
+    background-color: var(--color-white) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    color: var(--color-secondary) !important;
+    font-size: 24px;
+}
+
+.navbar-brand span {
+    color: var(--color-primary);
+}
+
+.nav-link {
+    color: var(--color-text-muted) !important;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+    border-bottom: 2px solid transparent !important;
+}
+
+.nav-link:hover {
+    color: var(--color-primary) !important;
+}
+
+.nav-link.active {
+    color: var(--color-primary) !important;
+    border-bottom: 2px solid var(--color-primary) !important;
+}
+
+/* ========================================= */
+/* TARJETAS CORPORATIVAS (SERVICIOS Y HERR.)  */
+/* ========================================= */
+.corporative-card {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.corporative-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(156, 2, 186, 0.2);
+}
+
+.card-icon-container {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-bg-light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.corporative-card:hover .card-icon-container {
+    background-color: rgba(156, 2, 186, 0.1);
+}
+
+.card-icon-container img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.corporative-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 15px;
+}
+
+.corporative-card p {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #1a1a24 100%);
+    padding: 100px 0;
+    color: var(--color-white);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(156,2,186,0.15) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+}
+
+.hero-title {
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    color: var(--color-primary);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #ccc;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.btn-custom-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-custom-primary:hover {
+    background-color: #7a0293;
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* ========================================= */
+/* ESTILOS DEL MODAL DE CONCILIACIÓN         */
+/* ========================================= */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.custom-modal-content {
+    background-color: var(--color-white);
+    width: 98%;
+    max-width: 1800px;
+    height: 95vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-modal-header {
+    padding: 20px 30px;
+    background-color: var(--color-white);
+    color: var(--color-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-bg-light);
+}
+
+.custom-modal-header h2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: var(--color-primary);
+}
+
+.custom-modal-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    padding: 20px;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    min-width: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 8px;
+    padding: 15px;
+    background-color: var(--color-bg-light);
+}
+
+.column h3 {
+    margin-top: 0;
+    text-align: center;
+    color: var(--color-secondary);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.table-container {
+    flex: 1;
+    overflow: auto; /* Scroll horizontal y vertical */
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+table th, table td {
+    padding: 12px 15px; /* Celdas más espaciosas */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas, estilo Excel */
+}
+
+table th {
+    background-color: var(--color-bg-light);
+    color: var(--color-secondary);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.custom-modal-footer {
+    padding: 20px 30px;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--color-bg-light);
+}
+
+.btn-primary {
+    padding: 10px 24px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #7a0293;
+    transform: translateY(-1px);
+}
+
+.row-match {
+    background-color: #d4edda !important; /* Verde claro */
+}
+
+.row-pending {
+    background-color: #f8d7da !important; /* Rojo claro */
+}
+
+/* Nuevos Estilos para el Grid Editable */
+.custom-modal-content-large {
+    width: 90%;
+    max-width: 1400px;
+}
+
+.custom-modal-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    padding: 20px;
+    gap: 15px;
+}
+
+.context-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--color-bg-light);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+.context-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.context-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-secondary);
+}
+
+.context-group select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.context-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.toolbar {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    background-color: var(--color-white);
+    color: var(--color-secondary);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-bg-light);
+    border-color: #ccc;
+}
+
+.editable-table input[type="text"],
+.editable-table input[type="number"],
+.editable-table input[type="date"],
+.editable-table select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.editable-table td {
+    padding: 5px 10px; /* Reducir padding para los inputs */
+}
+
+.btn-danger {
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* =========================================
+   Chatbot Copilot Styles
+   ========================================= */
+
+.copilot-trigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 25px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    gap: 8px;
+    box-shadow: 0 5px 20px rgba(142, 68, 173, 0.4);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copilot-trigger:hover {
+    transform: scale(1.1);
+}
+
+#sv-copilot-container {
+    position: fixed;
+    bottom: 0 !important;
+    right: 20px !important;
+    width: 350px;
+    max-width: 85vw;
+    height: 500px;
+    max-height: calc(100vh - 80px);
+    background-color: white;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    z-index: 9999 !important;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: bottom right;
+}
+
+.copilot-hidden {
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
+.copilot-header {
+    background-color: var(--color-primary);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copilot-avatar {
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.copilot-btn-icon {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.copilot-messages-area {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.copilot-msg {
+    max-width: 85%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    animation: fadeInCopilot 0.3s ease;
+}
+
+.copilot-msg-bot {
+    background-color: white;
+    color: var(--color-secondary);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.copilot-msg-user {
+    background-color: var(--color-primary);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 2px 5px rgba(142, 68, 173, 0.2);
+}
+
+.copilot-input-area {
+    padding: 15px;
+    background-color: white;
+    border-top: 1px solid #eee;
+}
+
+.copilot-quick-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.copilot-chip {
+    background-color: rgba(142, 68, 173, 0.1);
+    color: var(--color-primary);
+    border: 1px solid rgba(142, 68, 173, 0.2);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copilot-chip:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+#copilot-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#copilot-input:focus {
+    border-color: var(--color-primary);
+}
+
+#copilot-send-btn {
+    background-color: var(--color-primary);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding-left: 2px;
+}
+
+#copilot-send-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+@keyframes fadeInCopilot {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+    #sv-copilot-container {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+}
